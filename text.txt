@@ -1,0 +1,23 @@
+#####################################################
+# download GHRSST, MUR-JPL-L4-GLOB-v4.1 daily
+#####################################################
+setwd("/mnt/data/dynamic_data/projects/projects2022/GHRSST_and_anomalies/R")
+start_date = paste(Sys.Date()-2, "T12:00:00Z", sep='') # just one day
+end_date = paste(Sys.Date()-2, "T12:00:00Z", sep='') # today minus 2 days
+
+#####################################################
+# New Zealand 
+url <- paste("https://upwell.pfeg.noaa.gov/erddap/griddap/nasa_jpl_dde5_3be1_897b.nc?analysed_sst%5B(",start_date,"):(",end_date,")%5D%5B(-49.0):(-31.0)%5D%5B(160.5):(179.5)%5D&.draw=surface&.vars=longitude%7Clatitude%7Canalysed_sst&.colorBar=KT_thermal%7CD%7CLinear%7C15%7C18%7C6&.land=over&.bgColor=0xffccccff", sep="")
+
+# filename <-"../data/latest_MUR_SST_New_Zealand.nc"
+download.file(url, filename)
+# end New Zealand
+
+
+#####################################################
+# California
+url <-paste("https://upwell.pfeg.noaa.gov/erddap/griddap/nasa_jpl_dde5_3be1_897b.nc?analysed_sst%5B(",start_date,"):(",end_date,")%5D%5B(30.0):(45.0)%5D%5B(-130.0):(-115.0)%5D&.draw=surface&.vars=longitude%7Clatitude%7Canalysed_sst&.colorBar=KT_thermal%7CD%7CLinear%7C15%7C18%7C6&.land=over&.bgColor=0xffccccff", sep="")
+
+filename <-"../data/latest_MUR_SST_California.nc"
+download.file(url, filename)
+# end California
